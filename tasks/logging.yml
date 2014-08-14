@@ -1,0 +1,12 @@
+---
+- name: Directory Exists | /data/log/elasticsearch
+  file:
+    state: directory
+    path: /data/log/elasticsearch
+    owner: root
+    group: wcmetrics
+    mode: 0775
+  tags:
+    - directory-structure
+    - logging
+    - elasticsearch

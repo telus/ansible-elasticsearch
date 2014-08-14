@@ -1,0 +1,20 @@
+---
+- name: Upload Config | monit | elasticsearch
+  template:
+    src: etc/monit/conf.d/elasticsearch
+    dest: /etc/monit/conf.d/elasticsearch
+  notify: Reload Service | monit
+  tags:
+    - elasticsearch
+    - monit
+
+- name: Trigger All Callbacks
+  meta: flush_handlers
+
+- name: Confirm Monitoring | elasticsearch
+  monit:
+    state: present
+    name: elasticsearch
+  tags:
+    - elasticsearch
+    - monit
