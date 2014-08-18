@@ -1,4 +1,16 @@
 ---
+- name: "Directory Exists | {{ elasticsearch_runtime_root }}"
+  file:
+    state: directory
+    path: "{{ elasticsearch_runtime_root }}"
+    owner: "{{ elasticsearch_user }}"
+    group: wcmetrics
+    mode: 0775
+  tags:
+    - directory-structure
+    - runtime-data
+    - elasticsearch
+
 - name: Upload Config | monit | elasticsearch
   template:
     src: etc/monit/conf.d/elasticsearch

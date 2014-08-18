@@ -1,0 +1,8 @@
+---
+elasticsearch_user: elasticsearch
+
+elasticsearch_runtime_root: "{{ runtime_root }}/elasticsearch"
+elasticsearch_pidfile_path: "{{ elasticsearch_runtime_root }}/elasticsearch.pid"
+
+elasticsearch_log_root: "{{ log_root }}/elasticsearch"
+elasticsearch_log_path: "{{ elasticsearch_log_root }}/elasticsearch.log"
