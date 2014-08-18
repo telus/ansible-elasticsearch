@@ -1,0 +1,33 @@
+---
+- name: Import Signing Key | Elasticsearch.org
+  apt_key:
+    state: present
+    url: http://packages.elasticsearch.org/GPG-KEY-elasticsearch
+  tags:
+    - elasticsearch
+
+- name: Import Repository | Elasticsearch
+  apt_repository:
+    state: present
+    repo: 'deb http://packages.elasticsearch.org/elasticsearch/1.2/debian stable main'
+  notify: Update Package Cache
+  tags:
+    - elasticsearch
+
+- name: Trigger All Callbacks
+  meta: flush_handlers
+
+- name: Install Packages | apt
+  apt:
+    state: latest
+    pkg: "{{ item }}"
+  with_items:
+    - openjdk-7-jre-headless
+    - elasticsearch
+  tags:
+    - elasticsearch
+
+- name: Install elasticsearch-cloud-aws 2.1.1 plugin
+  command: /usr/share/elasticsearch/bin/plugin -install elasticsearch/elasticsearch-cloud-aws/2.1.1 creates=/usr/share/elasticsearch/plugins/cloud-aws
+  tags:
+    - elasticsearch
