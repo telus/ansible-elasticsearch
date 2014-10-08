@@ -22,11 +22,3 @@
 
 - name: Trigger All Callbacks
   meta: flush_handlers
-
-- name: Confirm Monitoring | elasticsearch
-  monit:
-    state: present
-    name: elasticsearch
-  tags:
-    - elasticsearch
-    - monit
