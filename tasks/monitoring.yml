@@ -18,7 +18,7 @@
   notify: Reload Service | monit
   tags:
     - elasticsearch
-    - monit
+    - using-monit
 
 - name: Trigger All Callbacks
   meta: flush_handlers
