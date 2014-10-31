@@ -6,7 +6,7 @@
   with_items:
     - elasticsearch
   tags:
-    - sofware-installation
+    - software-installation
     - using-apt
     - elasticsearch
 
