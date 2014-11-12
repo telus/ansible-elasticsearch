@@ -14,10 +14,3 @@
   command: /usr/share/elasticsearch/bin/plugin -install elasticsearch/elasticsearch-cloud-aws/2.1.1 creates=/usr/share/elasticsearch/plugins/cloud-aws
   tags:
     - elasticsearch
-
-- name: Service Stopped | elasticsearch
-  service:
-    state: stopped
-    name: elasticsearch
-  tags:
-    - disruptive
