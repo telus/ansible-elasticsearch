@@ -1,4 +1,0 @@
-check process elasticsearch with pidfile {{ elasticsearch_pidfile_path }}
-  start program "/usr/sbin/service elasticsearch start"
-  stop program "/usr/sbin/service elasticsearch stop"
-  if 5 restarts within 5 cycles then timeout
