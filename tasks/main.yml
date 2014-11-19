@@ -1,4 +1,16 @@
 ---
-- include: install.yml
-- include: monitoring.yml
-- include: logging.yml
+- name: Install Packages | apt
+  apt:
+    state: latest
+    pkg: "{{ item }}"
+  with_items:
+    - elasticsearch
+  tags:
+    - software-installation
+    - using-apt
+    - elasticsearch
+
+- name: Install elasticsearch-cloud-aws 2.1.1 plugin
+  command: /usr/share/elasticsearch/bin/plugin -install elasticsearch/elasticsearch-cloud-aws/2.1.1 creates=/usr/share/elasticsearch/plugins/cloud-aws
+  tags:
+    - elasticsearch
