@@ -15,5 +15,6 @@ dependencies:
     logging_group: wcmetrics
     logging_user: "{{ elasticsearch_user }}"
     logging_files:
-      - tags: 'service'
+      - tags:
+          - service
         path: "{{ elasticsearch_log_path }}"
