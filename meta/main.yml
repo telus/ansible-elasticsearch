@@ -6,15 +6,4 @@ dependencies:
   - role: package/java
   - role: meta/monitor
     monitor_name: elasticsearch
-    monitor_group: wcmetrics
-    monitor_user: "{{ elasticsearch_user }}"
     monitor_pidfile: "{{ elasticsearch_pidfile_path }}"
-
-  - role: meta/logging
-    logging_name: elasticsearch
-    logging_group: wcmetrics
-    logging_user: "{{ elasticsearch_user }}"
-    logging_files:
-      - tags:
-          - service
-        path: "{{ elasticsearch_log_path }}"
