@@ -7,3 +7,6 @@ dependencies:
   - role: meta/monitor
     monitor_name: elasticsearch
     monitor_pidfile: "{{ elasticsearch_pidfile_path }}"
+
+  - role: package/logrotate
+    logrotate_name: elasticsearch
