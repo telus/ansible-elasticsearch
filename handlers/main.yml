@@ -1,11 +1,7 @@
 ---
-- name: Reload Service | monit
-  command: monit reload
-
 - name: Reload Service | elasticsearch
-  monit:
-    state: restarted
+  service:
+    state: reloaded
     name: elasticsearch
   tags:
-    - using-monit
     - disruptive
