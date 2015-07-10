@@ -8,9 +8,7 @@ elasticsearch_log_root: "{{ log_root | default('/var/log') }}/elasticsearch"
 elasticsearch_log_path: "{{ elasticsearch_log_root }}/elasticsearch.log"
 
 elasticsearch_config_path: "/etc/elasticsearch"
-
-
-elasticsearch_http_basic_enabled: true
-elasticsearch_http_basic_user: "admin"
-elasticsearch_http_basic_password: "admin_pw"
+elasticsearch_http_basic_enabled: false
+elasticsearch_http_basic_user: ''
+elasticsearch_http_basic_password: ''
 elasticsearch_http_basic_log: true
