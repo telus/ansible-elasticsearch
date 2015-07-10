@@ -16,6 +16,6 @@
     - elasticsearch
 
 - name: Install elasticsearch-http-basic 1.5.0 plugin
-  command: wget -P /usr/share/elasticsearch/plugins/http-basic https://github.com/Asquera/elasticsearch-http-basic/releases/download/v1.5.0/elasticsearch-http-basic-1.5.0.jar
+  command: wget -P /usr/share/elasticsearch/plugins/http-basic https://github.com/Asquera/elasticsearch-http-basic/releases/download/v1.5.0/elasticsearch-http-basic-1.5.0.jar --no-clobber
   tags:
     - elasticsearch
