@@ -1,5 +1,5 @@
 ---
-- name: "Upload Plugins | plugins config"
+- name: "Configure elasticsearch | elasticsearch config"
   template:
     src: etc/elasticsearch/elasticsearch.yml
     dest: "{{ elasticsearch_config_path }}/elasticsearch.yml"
