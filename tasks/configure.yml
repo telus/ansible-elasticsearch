@@ -1,9 +1,16 @@
 ---
-- name: "Configure elasticsearch | elasticsearch config"
-  template:
-    src: etc/elasticsearch/elasticsearch.yml
-    dest: "{{ elasticsearch_config_path }}/elasticsearch.yml"
-    owner: root
-    group: wcadmin
-    mode: 0664
+- name: Configure | elasticsearch | http_basic
+  lineinfile:
+    state: present
+    dest: "{{ elasticsearch_config_path }}/elasticsearch.yaml"
+    regexp: "{{ item.key }}:"
+    line: "{{ item.key }}: {{ item.value }}"
+  with_items:
+    - { key: http.basic.enabled,   value: "{{ elasticsearch_http_basic_enabled }}" }
+    - { key: http.basic.user,      value: "{{ elasticsearch_http_basic_user }}" }
+    - { key: http.basic.password,  value: "{{ elasticsearch_http_basic_password }}" }
+    - { key: http.basic.log,       value: "{{ elasticsearch_http_basic_log }}" }
   notify: Reload Service | elasticsearch
+  tags:
+    - configuration
+    - elasticsearch
