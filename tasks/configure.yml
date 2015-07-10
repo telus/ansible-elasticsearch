@@ -1,0 +1,16 @@
+---
+- name: Configure | elasticsearch | http_basic
+  lineinfile:
+    state: present
+    dest: "{{ elasticsearch_config_path }}/elasticsearch.yml"
+    regexp: "{{ item.key }}:"
+    line: "{{ item.key }}: {{ item.value }}"
+  with_items:
+    - { key: http.basic.enabled,   value: "{{ elasticsearch_http_basic_enabled }}" }
+    - { key: http.basic.user,      value: "{{ elasticsearch_http_basic_user }}" }
+    - { key: http.basic.password,  value: "{{ elasticsearch_http_basic_password }}" }
+    - { key: http.basic.log,       value: "{{ elasticsearch_http_basic_log }}" }
+  notify: Reload Service | elasticsearch
+  tags:
+    - configuration
+    - elasticsearch

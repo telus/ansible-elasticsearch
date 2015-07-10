@@ -11,6 +11,11 @@
     - elasticsearch
 
 - name: Install elasticsearch-cloud-aws 2.1.1 plugin
-  command: /usr/share/elasticsearch/bin/plugin -install elasticsearch/elasticsearch-cloud-aws/2.1.1 creates=/usr/share/elasticsearch/plugins/cloud-aws
+  command: /usr/share/elasticsearch/bin/plugin --install elasticsearch/elasticsearch-cloud-aws/2.1.1 creates=/usr/share/elasticsearch/plugins/cloud-aws
+  tags:
+    - elasticsearch
+
+- name: Install elasticsearch-http-basic 1.5.0 plugin
+  command: wget -P /usr/share/elasticsearch/plugins/http-basic https://github.com/Asquera/elasticsearch-http-basic/releases/download/v1.5.0/elasticsearch-http-basic-1.5.0.jar --no-clobber
   tags:
     - elasticsearch
