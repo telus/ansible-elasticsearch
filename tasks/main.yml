@@ -2,3 +2,4 @@
 - include: install.yml
 - include: monitoring.yml
 - include: logging.yml
+- include: configure.yml
