@@ -1,0 +1,4 @@
+http.basic.enabled: true
+http.basic.user: "admin"
+http.basic.password: "admin_pw"
+http.basic.log: true

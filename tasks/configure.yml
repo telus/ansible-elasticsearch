@@ -1,0 +1,9 @@
+---
+- name: "Upload Plugins | plugins config"
+  template:
+    src: etc/elasticsearch/elasticsearch.yml
+    dest: "{{ elasticsearch_config_path }}/elasticsearch.yml"
+    owner: root
+    group: wcadmin
+    mode: 0664
+  notify: Reload Service | elasticsearch

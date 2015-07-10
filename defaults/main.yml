@@ -6,3 +6,5 @@ elasticsearch_pidfile_path: "{{ elasticsearch_runtime_root }}/elasticsearch.pid"
 
 elasticsearch_log_root: "{{ log_root | default('/var/log') }}/elasticsearch"
 elasticsearch_log_path: "{{ elasticsearch_log_root }}/elasticsearch.log"
+
+elasticsearch_config_path: "/etc/elasticsearch"
