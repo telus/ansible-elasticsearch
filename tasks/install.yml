@@ -19,3 +19,9 @@
   command: wget -P /usr/share/elasticsearch/plugins/http-basic https://github.com/Asquera/elasticsearch-http-basic/releases/download/v1.5.0/elasticsearch-http-basic-1.5.0.jar --no-clobber
   tags:
     - elasticsearch
+  when: elasticsearch_http_basic_enabled
+
+- name: Install lmenezes/elasticsearch-kopf
+  command: /usr/share/elasticsearch/bin/plugin --install lmenezes/elasticsearch-kopf
+  tags:
+    - elasticsearch
