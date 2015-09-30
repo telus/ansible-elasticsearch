@@ -11,19 +11,16 @@ cloud.aws.access_key: "{{ elasticsearch_cloud_aws_access_key }}"
 cloud.aws.secret_key: "{{ elasticsearch_cloud_aws_secret_key }}"
 
 cluster.name: elasticsearch_cluster_production
-node.name: Professor-X
-node.master: true
+node.name: {{ ansible_hostname }}
+# node.master: true
 
-discovery.type: ec2
+discovery:
+  type: ec2
+  ec2:
+    groups: "logger-logs"
+    host_type: private_ip
+  zen.ping.multicast.enabled: false
+cloud:
+  aws:
+    region: {{ region }}
 
-discovery.ec2.availability_zones: eu-west-1
-cloud.aws.region: eu-west-1
-
-discovery.zen.ping.multicast.enabled: false
-discovery.ec2.tag.elastic: cluster
-discovery.ec2.host_type: public_ip
-discovery.zen.ping.multicast.enabled: false
-
-network.publish_host: "52.19.29.82"
-cloud.node.auto_attributes: true
-discovery.zen.ping.unicast.hosts: ["52.19.29.82", "52.17.212.184", "54.77.121.255", "52.18.81.28" ]
