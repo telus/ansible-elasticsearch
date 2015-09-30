@@ -1,6 +1,6 @@
 http.basic.enabled: "{{ elasticsearch_http_basic_enabled }}"
-http.basic.user: "{{ elasticsearch_http_user }}"
-http.basic.password: "{{ elasticsearch_http_password }}"
+http.basic.user: "{{ elasticsearch_http_basic_user }}"
+http.basic.password: "{{ elasticsearch_http_basic_password }}"
 http.basic.log: "{{ elasticsearch_http_basic_log }}"
 
 plugin.mandatory: cloud-aws
