@@ -19,4 +19,4 @@
 - name: Upload configuration templates | elasticsearch
   template:
     src: elasticsearch.yml
-    dest: {{ elasticsearch_config_path }}/elasticsearch.yml
+    dest: "{{ elasticsearch_config_path }}/elasticsearch.yml"
