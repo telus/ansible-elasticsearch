@@ -24,6 +24,6 @@ discovery.ec2.tag.elastic: cluster
 discovery.ec2.host_type: public_ip
 discovery.zen.ping.multicast.enabled: false
 
-network.publish_host: "52.4.252.96"
+network.publish_host: "52.19.29.82"
 cloud.node.auto_attributes: true
-discovery.zen.ping.unicast.hosts: ["52.4.252.96", "54.172.58.13", "54.165.111.157", "54.174.30.21", "54.174.21.234"]
+discovery.zen.ping.unicast.hosts: ["52.19.29.82", "52.17.212.184", "54.77.121.255", "52.18.81.28" ]
