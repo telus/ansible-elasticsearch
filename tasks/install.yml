@@ -10,6 +10,9 @@
     - using-apt
     - elasticsearch
 
+- name: Remove plugins
+  command: /usr/share/elasticsearch/bin/plugin -r cloud-aws
+
 - name: Install elasticsearch-cloud-aws 2.7.1 plugin
   command: /usr/share/elasticsearch/bin/plugin --install elasticsearch/elasticsearch-cloud-aws/2.7.1 creates=/usr/share/elasticsearch/plugins/cloud-aws
   tags:
