@@ -22,5 +22,5 @@ discovery:
   zen.ping.multicast.enabled: false
 cloud:
   aws:
-    region: {{ region }}
+    region: eu-west-1
 
