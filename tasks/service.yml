@@ -1,0 +1,7 @@
+---
+- name: Elasticsearch is started | elasticsearch
+  service:
+    state: started
+    name: elasticsearch
+  tags:
+    - disruptive

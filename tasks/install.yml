@@ -11,8 +11,8 @@
     - elasticsearch
 
 - name: Remove plugins
-  command: /usr/share/elasticsearch/bin/plugin -r cloud-aws
-  command: /usr/share/elasticsearch/bin/plugin -r lmenezes/elasticsearch-kopf
+  command: /usr/share/elasticsearch/bin/plugin --remove cloud-aws
+  command: /usr/share/elasticsearch/bin/plugin --remove lmenezes/elasticsearch-kopf
 
 
 - name: Install elasticsearch-cloud-aws 2.7.1 plugin
@@ -28,5 +28,19 @@
 
 - name: Install lmenezes/elasticsearch-kopf
   command: /usr/share/elasticsearch/bin/plugin --install lmenezes/elasticsearch-kopf
+  tags:
+    - elasticsearch
+
+- name: Install elasticsearch/shield/latest
+  command: /usr/share/elasticsearch/bin/plugin --install elasticsearch/shield/latest
+  tags:
+    - elasticsearch
+
+- name: Upload Shield Symmetric key
+  template:
+    src: system_key
+    dest: {{ elasticsearch_config_path }}/shield/system_key
+    owner: {{ elasticsearch_user }}
+    mode: "u=rw,g=r,o=r"
   tags:
     - elasticsearch

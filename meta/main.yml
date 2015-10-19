@@ -6,6 +6,9 @@ dependencies:
   - role: telusdigital.java
   - role: telusdigital.logrotate
     logrotate_name: elasticsearch
+  # - role: telusdigital.upstart
+  #   upstart_pre_start:
+  #     - sed -i 's/NODE_NAME/node-1/g' elasticsearch.yml
 galaxy_info:
   author: "Chris Olstrom"
   company: "TELUS digital"

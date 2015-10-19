@@ -11,7 +11,6 @@ cloud.aws.access_key: "{{ elasticsearch_cloud_aws_access_key }}"
 cloud.aws.secret_key: "{{ elasticsearch_cloud_aws_secret_key }}"
 
 cluster.name: elasticsearch_cluster_production
-node.name: {{ ansible_hostname }}
 # node.master: true
 
 discovery:
