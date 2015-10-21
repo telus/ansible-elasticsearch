@@ -20,27 +20,7 @@
   tags:
     - elasticsearch
 
-- name: Install elasticsearch-http-basic 1.5.0 plugin
-  command: wget -P /usr/share/elasticsearch/plugins/http-basic https://github.com/Asquera/elasticsearch-http-basic/releases/download/v1.5.0/elasticsearch-http-basic-1.5.0.jar --no-clobber
-  tags:
-    - elasticsearch
-  when: elasticsearch_http_basic_enabled
-
 - name: Install lmenezes/elasticsearch-kopf
   command: /usr/share/elasticsearch/bin/plugin --install lmenezes/elasticsearch-kopf
-  tags:
-    - elasticsearch
-
-- name: Install elasticsearch/shield/latest
-  command: /usr/share/elasticsearch/bin/plugin --install elasticsearch/shield/latest
-  tags:
-    - elasticsearch
-
-- name: Upload Shield Symmetric key
-  template:
-    src: system_key
-    dest: {{ elasticsearch_config_path }}/shield/system_key
-    owner: {{ elasticsearch_user }}
-    mode: "u=rw,g=r,o=r"
   tags:
     - elasticsearch
