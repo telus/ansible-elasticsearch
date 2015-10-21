@@ -7,8 +7,10 @@ dependencies:
   - role: telusdigital.logrotate
     logrotate_name: elasticsearch
   - role: telusdigital.upstart
-    upstart_pre_start:
-      - sed -i 's/NODE_NAME/node-1/g' elasticsearch.yml
+    upstart_name: elasticsearch
+    upstart_user: elasticsearch
+    upstart_group: elasticsearch
+    upstart_exec_path: '/usr/share/elasticsearch/bin/elasticsearch'
 galaxy_info:
   author: "Chris Olstrom"
   company: "TELUS digital"
