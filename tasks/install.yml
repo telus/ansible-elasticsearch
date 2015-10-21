@@ -10,17 +10,14 @@
     - using-apt
     - elasticsearch
 
-- name: Remove plugins
-  command: /usr/share/elasticsearch/bin/plugin --remove cloud-aws
-  command: /usr/share/elasticsearch/bin/plugin --remove lmenezes/elasticsearch-kopf
-  command: /usr/share/elasticsearch/bin/plugin --remove elasticsearch/shield
-
 - name: Install elasticsearch-cloud-aws 2.7.1 plugin
+  command: /usr/share/elasticsearch/bin/plugin --remove cloud-aws
   command: /usr/share/elasticsearch/bin/plugin --install elasticsearch/elasticsearch-cloud-aws/2.7.1 creates=/usr/share/elasticsearch/plugins/cloud-aws
   tags:
     - elasticsearch
 
 - name: Install lmenezes/elasticsearch-kopf
+  command: /usr/share/elasticsearch/bin/plugin --remove lmenezes/elasticsearch-kopf
   command: /usr/share/elasticsearch/bin/plugin --install lmenezes/elasticsearch-kopf
   tags:
     - elasticsearch

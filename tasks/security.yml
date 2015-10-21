@@ -7,6 +7,7 @@
 
 
 - name: Install elasticsearch/shield/latest
+  command: /usr/share/elasticsearch/bin/plugin --remove elasticsearch/shield
   command: /usr/share/elasticsearch/bin/plugin --install elasticsearch/shield/latest
   tags:
     - elasticsearch
