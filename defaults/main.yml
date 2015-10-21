@@ -10,4 +10,4 @@ elasticsearch_log_path: "{{ elasticsearch_log_root }}/elasticsearch.log"
 elasticsearch_config_path: "/etc/elasticsearch"
 elasticsearch_http_basic_enabled: true
 elasticsearch_http_basic_log: true
-
+elasticsearch_shield_symmetric_key: ''
