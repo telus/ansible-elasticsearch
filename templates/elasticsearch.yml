@@ -11,7 +11,9 @@ cloud.aws.access_key: "{{ elasticsearch_cloud_aws_access_key }}"
 cloud.aws.secret_key: "{{ elasticsearch_cloud_aws_secret_key }}"
 
 cluster.name: elasticsearch_cluster_production
-# node.master: true
+
+path:
+  logs: /data/log/elasticsearch
 
 discovery:
   type: ec2
@@ -21,5 +23,5 @@ discovery:
   zen.ping.multicast.enabled: false
 cloud:
   aws:
-    region: eu-west-1
+    region: us-east-1
 
