@@ -11,6 +11,7 @@ dependencies:
     upstart_user: elasticsearch
     upstart_group: elasticsearch
     upstart_exec_path: '/usr/share/elasticsearch/bin/elasticsearch'
+    upstart_exec_flags: -Des.config=/etc/elasticsearch
 galaxy_info:
   author: "Chris Olstrom"
   company: "TELUS digital"
