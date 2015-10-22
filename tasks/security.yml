@@ -4,11 +4,14 @@
   tags:
     - elasticsearch
     - shield
+  when: elasticsearch_shield_enabled
+
 - name: Install elasticsearch/shield/latest
   command: /usr/share/elasticsearch/bin/plugin --install elasticsearch/shield/latest
   tags:
     - elasticsearch
     - shield
+  when: elasticsearch_shield_enabled
 
 - name: Upload Shield Symmetric key
   template:
@@ -19,3 +22,4 @@
   tags:
     - elasticsearch
     - shield
+  when: elasticsearch_shield_enabled
