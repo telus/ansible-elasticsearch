@@ -24,11 +24,3 @@ discovery:
 cloud:
   aws:
     region: us-east-1
-
-# shield:
-#   http.ssl: true
-#   ssl.keystore:
-#     path: /etc/elasticsearch/shield/ssl_keys/node01.jks
-#     password: "notwebchannel"
-#     key_password: "notwebchannel"
-# network.host: _ec2:privateIpv4_
