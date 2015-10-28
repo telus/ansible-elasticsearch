@@ -1,0 +1,34 @@
+# {{ ansible_managed }}
+
+http.basic.enabled: {{ elasticsearch_http_basic_enabled }}
+http.basic.user: "{{ elasticsearch_http_basic_user }}"
+http.basic.password: "{{ elasticsearch_http_basic_password }}"
+http.basic.log: {{ elasticsearch_http_basic_log }}
+
+plugin.mandatory: cloud-aws
+
+cloud.aws.access_key: "{{ elasticsearch_cloud_aws_access_key }}"
+cloud.aws.secret_key: "{{ elasticsearch_cloud_aws_secret_key }}"
+
+cluster.name: elasticsearch_cluster_production
+
+path:
+  logs: /data/log/elasticsearch
+
+discovery:
+  type: ec2
+  ec2:
+    groups: "logger-logs"
+    host_type: private_ip
+  zen.ping.multicast.enabled: false
+cloud:
+  aws:
+    region: us-east-1
+
+# shield:
+#   http.ssl: true
+#   ssl.keystore:
+#     path: /etc/elasticsearch/shield/ssl_keys/node01.jks
+#     password: "notwebchannel"
+#     key_password: "notwebchannel"
+# network.host: _ec2:privateIpv4_
