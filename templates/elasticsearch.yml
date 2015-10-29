@@ -23,4 +23,4 @@ discovery:
   zen.ping.multicast.enabled: false
 cloud:
   aws:
-    region: us-east-1
+    region: "{{ elasticsearch_cloud_aws_region }}"
