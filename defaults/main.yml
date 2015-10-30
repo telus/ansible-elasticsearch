@@ -12,3 +12,7 @@ elasticsearch_http_basic_enabled: false
 elasticsearch_http_basic_user: ''
 elasticsearch_http_basic_password: ''
 elasticsearch_http_basic_log: true
+
+elasticsearch_cloud_aws_access_key: ''
+elasticsearch_cloud_aws_secret_key: ''
+elasticsearch_cloud_aws_region: us-east-1
