@@ -12,3 +12,5 @@ elasticsearch_shield_enabled: false
 elasticsearch_http_basic_enabled: false
 elasticsearch_http_basic_log: true
 elasticsearch_shield_symmetric_key: ''
+elasticsearch_cloud_aws_enabled: no
+elasticsearch_kopf_enabled: no
