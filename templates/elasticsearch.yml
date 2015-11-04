@@ -16,9 +16,7 @@ discovery:
     groups: "logger-logs"
     host_type: private_ip
   zen.ping.multicast.enabled: false
-  # {{ if master }}
   zen.ping.unicast.hosts: ["metrics.logger-production.teluswebteam.com", "logs.logger-production.teluswebteam.com", "10.10.12.56", "10.10.12.121", "10.10.12.18"]
-  # {{ endif}}
 cloud:
   aws:
     region: us-east-1
