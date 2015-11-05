@@ -2,7 +2,7 @@
 dependencies:
   - role: telusdigital.apt-repository
     repository_key: "0xd27d666cd88e42b4"
-    repository_url: "deb http://packages.elastic.co/elasticsearch/2.0/debian stable main"
+    repository_url: "deb http://packages.elastic.co/elasticsearch/1.7/debian stable main"
   - role: telusdigital.java
   - role: telusdigital.logrotate
     logrotate_name: elasticsearch
