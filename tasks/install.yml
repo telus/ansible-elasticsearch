@@ -19,7 +19,7 @@
   when: elasticsearch_kopf_enabled
 
 - name: Install elasticsearch-cloud-aws 2.7.1 plugin
-  command: /usr/share/elasticsearch/bin/plugin install cloud-aws
+  command: /usr/share/elasticsearch/bin/plugin install elasticsearch/elasticsearch-cloud-aws/2.7.1
   when: elasticsearch_cloud_aws_enabled
   tags:
     - elasticsearch
