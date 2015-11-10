@@ -25,8 +25,8 @@
   tags:
     - elasticsearch
 
-- name: Install lmenezes/elasticsearch-kopf 2.0.0
-  command: /usr/share/elasticsearch/bin/plugin install lmenezes/elasticsearch-kopf/2.0.0
+- name: Install lmenezes/elasticsearch-kopf 2.0
+  command: /usr/share/elasticsearch/bin/plugin install lmenezes/elasticsearch-kopf/2.0
   when: elasticsearch_kopf_enabled
   tags:
     - elasticsearch
