@@ -17,4 +17,6 @@ elasticsearch_kopf_enabled: yes
 
 elasticsearch_cluster_name: elasticsearch
 
-elasticsearch_master_enabled: false
+elasticsearch_master_enabled: true
+elasticsearch_data_enabled: true
+elasticsearch_http_enabled: true
