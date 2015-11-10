@@ -13,10 +13,9 @@ path:
 discovery:
   type: ec2
   ec2:
-    groups: "logger-logs"
+    groups: "{{ elasticsearch_cluster_group_name }}"
     host_type: private_ip
   zen.ping.multicast.enabled: false
-  zen.ping.unicast.hosts: ["metrics.logger-production.teluswebteam.com", "logs.logger-production.teluswebteam.com", "10.10.12.56", "10.10.12.121", "10.10.12.18"]
 cloud:
   aws:
     region: us-east-1
