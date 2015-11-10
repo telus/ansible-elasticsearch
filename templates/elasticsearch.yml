@@ -25,20 +25,20 @@ indices.fielddata.cache.size: 40%
 bootstrap.mlockall: true
 
 
-{{ if elasticsearch_master_enabled }}
+{% if elasticsearch_master_enabled %}
 node.master: true
-{{ elseif}}
+{% else %}
 node.master: false
-{{ endif}}
+{% endif %}
 
-{{ if elasticsearch_data_enabled }}
+{% if elasticsearch_data_enabled %}
 node.data: true
-{{ elseif}}
+{% else %}
 node.data: false
-{{ endif}}
+{% endif %}
 
-{{ if elasticsearch_http_enabled }}
+{% if elasticsearch_http_enabled %}
 http.enabled: true
-{{ elseif}}
+{% else %}
 http.enabled: false
-{{ endif}}
+{% endif %}
