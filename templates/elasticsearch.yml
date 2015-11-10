@@ -5,7 +5,7 @@ plugin.mandatory: cloud-aws
 cloud.aws.access_key: "{{ elasticsearch_cloud_aws_access_key }}"
 cloud.aws.secret_key: "{{ elasticsearch_cloud_aws_secret_key }}"
 
-cluster.name: elasticsearch_cluster_production
+cluster.name: "{{ elasticsearch_cluster_name }}"
 network.host: 0.0.0.0
 path:
   logs: /data/log/elasticsearch
@@ -23,3 +23,22 @@ cloud:
 
 indices.fielddata.cache.size: 40%
 bootstrap.mlockall: true
+
+
+{{ if elasticsearch_master_enabled }}
+node.master: true
+{{ elseif}}
+node.master: false
+{{ endif}}
+
+{{ if elasticsearch_data_enabled }}
+node.data: true
+{{ elseif}}
+node.data: false
+{{ endif}}
+
+{{ if elasticsearch_http_enabled }}
+http.enabled: true
+{{ elseif}}
+http.enabled: false
+{{ endif}}

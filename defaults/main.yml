@@ -14,3 +14,7 @@ elasticsearch_http_basic_log: true
 elasticsearch_shield_symmetric_key: ''
 elasticsearch_cloud_aws_enabled: yes
 elasticsearch_kopf_enabled: yes
+
+elasticsearch_cluster_name: elasticsearch
+
+elasticsearch_master_enabled: false
