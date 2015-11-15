@@ -8,7 +8,8 @@
   command: apt-key add /tmp/elasticsearch.skey
 
 - name: Create Apt Source file
-  touch:
+  file:
+    state: touch
     owner: root
     mode: 644
     path: /etc/apt/sources.list.d/elasticsearch-2.x.list
