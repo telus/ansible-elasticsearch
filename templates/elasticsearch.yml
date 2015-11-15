@@ -9,33 +9,30 @@ cluster.name: "{{ elasticsearch_cluster_name }}"
 network.host: 0.0.0.0
 path:
   logs: /data/log/elasticsearch
-
+  data: /var/data/elasticsearch
 discovery:
   type: ec2
   ec2:
-    groups: "{{ elasticsearch_cluster_group_name }}"
+    # groups: "{{ elasticsearch_security_group_name }}"
     host_type: private_ip
   zen.ping.multicast.enabled: false
-{% if elasticsearch_master_enabled %}
-  zen.ping.unicast.hosts: ["metrics.logger-production.teluswebteam.com", "logs.logger-production.teluswebteam.com"]
-{% endif %}
 
 cloud:
   aws:
-    region: us-east-1
-
-indices.fielddata.cache.size: 40%
-bootstrap.mlockall: true
+    region: "{{ region }}"
 
 
 {% if elasticsearch_master_enabled %}
 node.master: true
+discovery.zen.ping.unicast.hosts: ["client.logger-production.teluswebteam.com", "logs.logger-production.teluswebteam.com"]
 {% else %}
 node.master: false
 {% endif %}
 
 {% if elasticsearch_data_enabled %}
 node.data: true
+indices.fielddata.cache.size: 40%
+bootstrap.mlockall: true
 {% else %}
 node.data: false
 {% endif %}

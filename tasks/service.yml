@@ -1,7 +1,7 @@
 ---
 - name: Elasticsearch is started | elasticsearch
   service:
-    state: started
+    state: restarted
     name: elasticsearch
   tags:
     - disruptive

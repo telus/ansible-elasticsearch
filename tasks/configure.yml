@@ -19,3 +19,11 @@
   template:
     src: elasticsearch.yml
     dest: "{{ elasticsearch_config_path }}/elasticsearch.yml"
+
+
+- name: Adjust Elasticsearch Heap Size to 50% of available RAM
+  lineinfile:
+    state: present
+    dest: "/etc/init.d/elasticsearch"
+    regexp: "ES_HEAP_SIZE"
+    line: ES_HEAP_SIZE=8g

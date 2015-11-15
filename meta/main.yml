@@ -6,11 +6,6 @@ dependencies:
   - role: telusdigital.java
   - role: telusdigital.logrotate
     logrotate_name: elasticsearch
-  # - role: telusdigital.upstart
-  #   upstart_name: elasticsearch
-  #   upstart_user: elasticsearch
-  #   upstart_group: elasticsearch
-  #   upstart_exec_path: '/usr/share/elasticsearch/bin/elasticsearch'
 galaxy_info:
   author: "Chris Olstrom"
   company: "TELUS digital"
