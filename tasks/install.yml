@@ -3,6 +3,8 @@
   get_url:
     url: https://packages.elastic.co/GPG-KEY-elasticsearch
     dest: /tmp/elasticsearch.skey
+
+- name: Add Public Signing Key to apt-key
   command: apt-key add /tmp/elasticsearch.skey
 
 - name: Save Repository definition
