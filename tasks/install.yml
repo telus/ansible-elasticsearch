@@ -12,7 +12,6 @@
     state: present
     line: deb http://packages.elastic.co/elasticsearch/2.x/debian stable main
     dest: /etc/apt/sources.list.d/elasticsearch-2.x.list
-  command: echo "" | sudo tee -a /etc/apt/sources.list.d/elasticsearch-2.x.list
 
 - name: Install Packages | apt
   apt:
