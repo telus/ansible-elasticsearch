@@ -19,7 +19,7 @@ discovery:
 
 cloud:
   aws:
-    region: "{{ region }}"
+    region: {% if environment_tier == 'production' %}us-east-1{% else %}us-west-2{% endif %}
 
 
 {% if elasticsearch_master_enabled %}
