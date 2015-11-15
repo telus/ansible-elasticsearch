@@ -28,6 +28,7 @@
     update_cache: yes
   with_items:
     - elasticsearch
+  ignore_errors: yes
   tags:
     - software-installation
     - using-apt
