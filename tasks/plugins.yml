@@ -1,0 +1,20 @@
+---
+- name: Remove plugin cloud-aws
+  command: /usr/share/elasticsearch/bin/plugin remove cloud-aws
+  when: elasticsearch_cloud_aws_enabled
+
+- name: Remove plugin lmenezes/elasticsearch-kopf
+  command: /usr/share/elasticsearch/bin/plugin remove kopf
+  when: elasticsearch_kopf_enabled
+
+- name: Install elasticsearch-cloud-aws 2.7.1 plugin
+  command: /usr/share/elasticsearch/bin/plugin install cloud-aws
+  when: elasticsearch_cloud_aws_enabled
+  tags:
+    - elasticsearch
+
+- name: Install lmenezes/elasticsearch-kopf 2.0
+  command: /usr/share/elasticsearch/bin/plugin install lmenezes/elasticsearch-kopf/2.0
+  when: elasticsearch_kopf_enabled
+  tags:
+    - elasticsearch
