@@ -1,4 +1,17 @@
 ---
+- name: Install Public Signing Key
+  get_url:
+    url: https://packages.elastic.co/GPG-KEY-elasticsearch
+    dest: /tmp/elasticsearch.skey
+  command: apt-key add /tmp/elasticsearch.skey
+
+- name: Save Repository definition
+  lineinfile:
+    state: present
+    line: deb http://packages.elastic.co/elasticsearch/2.x/debian stable main
+    dest: /etc/apt/sources.list.d/elasticsearch-2.x.list
+  command: echo "" | sudo tee -a /etc/apt/sources.list.d/elasticsearch-2.x.list
+
 - name: Install Packages | apt
   apt:
     state: latest
@@ -9,24 +22,4 @@
   tags:
     - software-installation
     - using-apt
-    - elasticsearch
-
-- name: Remove plugin cloud-aws
-  command: /usr/share/elasticsearch/bin/plugin remove cloud-aws
-  when: elasticsearch_cloud_aws_enabled
-
-- name: Remove plugin lmenezes/elasticsearch-kopf
-  command: /usr/share/elasticsearch/bin/plugin remove kopf
-  when: elasticsearch_kopf_enabled
-
-- name: Install elasticsearch-cloud-aws 2.7.1 plugin
-  command: /usr/share/elasticsearch/bin/plugin install cloud-aws
-  when: elasticsearch_cloud_aws_enabled
-  tags:
-    - elasticsearch
-
-- name: Install lmenezes/elasticsearch-kopf 2.0
-  command: /usr/share/elasticsearch/bin/plugin install lmenezes/elasticsearch-kopf/2.0
-  when: elasticsearch_kopf_enabled
-  tags:
     - elasticsearch
