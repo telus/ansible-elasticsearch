@@ -26,4 +26,4 @@
     state: present
     dest: "/etc/init.d/elasticsearch"
     regexp: "#ES_HEAP_SIZE=2g"
-    line: ES_HEAP_SIZE=8g
+    line: "ES_HEAP_SIZE={{ elasticsearch_heap_size }}"
