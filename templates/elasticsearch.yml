@@ -24,20 +24,30 @@ cloud:
 
 {% if elasticsearch_master_enabled %}
 node.master: true
-discovery.zen.ping.unicast.hosts: ["client.logger-production.teluswebteam.com", "logs.logger-production.teluswebteam.com"]
+# discovery.zen.ping.unicast.hosts: ["client.logger-production.teluswebteam.com", "logs.logger-production.teluswebteam.com"]
 {% else %}
 node.master: false
 {% endif %}
 
 {% if elasticsearch_data_enabled %}
 node.data: true
-indices.fielddata.cache.size: 40%
+# indices.fielddata.cache.size: 40%
+index.cache.query.enable: true
+
+indices.cache.filter.size: 20%
+indices.cache.query.size: 5%
 bootstrap.mlockall: true
 {% else %}
 node.data: false
 {% endif %}
 
 {% if elasticsearch_http_enabled %}
+index.cache.query.enable: true
+
+indices.cache.filter.size: 20%
+indices.cache.query.size: 5%
+bootstrap.mlockall: true
+
 http.enabled: true
 {% else %}
 http.enabled: false
