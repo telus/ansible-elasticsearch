@@ -11,6 +11,7 @@ elasticsearch_config_path: "/etc/elasticsearch"
 elasticsearch_shield_enabled: false
 elasticsearch_http_basic_enabled: false
 elasticsearch_http_basic_log: true
+
 elasticsearch_shield_symmetric_key: ''
 elasticsearch_cloud_aws_enabled: yes
 elasticsearch_kopf_enabled: yes
@@ -21,3 +22,7 @@ elasticsearch_master_enabled: false
 elasticsearch_data_enabled: false
 elasticsearch_http_enabled: true
 elasticsearch_security_group_name: logger-logs
+
+elasticsearch_cloud_aws_access_key: ''
+elasticsearch_cloud_aws_secret_key: ''
+elasticsearch_cloud_aws_region: us-east-1

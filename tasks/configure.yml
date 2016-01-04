@@ -10,6 +10,7 @@
     - { key: http.basic.user,      value: "{{ elasticsearch_http_basic_user }}" }
     - { key: http.basic.password,  value: "{{ elasticsearch_http_basic_password }}" }
     - { key: http.basic.log,       value: "{{ elasticsearch_http_basic_log }}" }
+  notify: Reload Service | elasticsearch
   when: elasticsearch_http_basic_enabled
   tags:
     - configuration
@@ -19,6 +20,7 @@
   template:
     src: elasticsearch.yml
     dest: "{{ elasticsearch_config_path }}/elasticsearch.yml"
+<<<<<<< HEAD
 
 
 - name: Adjust Elasticsearch Heap Size to 50% of available RAM
@@ -27,3 +29,6 @@
     dest: "/etc/init.d/elasticsearch"
     regexp: "#ES_HEAP_SIZE=2g"
     line: "ES_HEAP_SIZE={{ elasticsearch_heap_size }}"
+=======
+  notify: Reload Service | elasticsearch
+>>>>>>> 2a2d66cb137eb69fec4f361e456a7013ffb5da42

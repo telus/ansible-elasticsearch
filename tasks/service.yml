@@ -1,5 +1,5 @@
 ---
-- name: Elasticsearch is started | elasticsearch
+- name: Reload Service | elasticsearch
   service:
     state: restarted
     name: elasticsearch
