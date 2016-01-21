@@ -4,7 +4,7 @@
     state: directory
     path: "{{ elasticsearch_runtime_root }}"
     owner: "{{ elasticsearch_user }}"
-    group: wcmetrics
+    group: "{{ elasticsearch_group }}"
     mode: 0775
   tags:
     - directory-structure
