@@ -1,5 +1,6 @@
 ---
 elasticsearch_user: elasticsearch
+elasticsearch_group: elasticsearch
 
 elasticsearch_runtime_root: "{{ runtime_root | default('/var/run') }}/elasticsearch"
 elasticsearch_pidfile_path: "{{ elasticsearch_runtime_root }}/elasticsearch.pid"
