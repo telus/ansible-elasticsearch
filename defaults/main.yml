@@ -9,10 +9,22 @@ elasticsearch_log_root: "{{ log_root | default('/var/log') }}/elasticsearch"
 elasticsearch_log_path: "{{ elasticsearch_log_root }}/elasticsearch.log"
 
 elasticsearch_config_path: "/etc/elasticsearch"
+elasticsearch_shield_enabled: false
 elasticsearch_http_basic_enabled: false
 elasticsearch_http_basic_user: ''
 elasticsearch_http_basic_password: ''
 elasticsearch_http_basic_log: true
+
+elasticsearch_shield_symmetric_key: ''
+elasticsearch_cloud_aws_enabled: yes
+elasticsearch_kopf_enabled: yes
+
+elasticsearch_cluster_name: elasticsearch
+
+elasticsearch_master_enabled: false
+elasticsearch_data_enabled: false
+elasticsearch_http_enabled: true
+elasticsearch_security_group_name: logger-logs
 
 elasticsearch_cloud_aws_access_key: ''
 elasticsearch_cloud_aws_secret_key: ''

@@ -10,17 +10,50 @@ plugin.mandatory: cloud-aws
 cloud.aws.access_key: "{{ elasticsearch_cloud_aws_access_key }}"
 cloud.aws.secret_key: "{{ elasticsearch_cloud_aws_secret_key }}"
 
-cluster.name: elasticsearch_cluster_production
-
+cluster.name: "{{ elasticsearch_cluster_name }}"
+network.host: 0.0.0.0
 path:
   logs: /data/log/elasticsearch
-
+  # data: /var/data/elasticsearch
 discovery:
   type: ec2
   ec2:
-    groups: "logger-logs"
+    # groups: "{{ elasticsearch_security_group_name }}"
     host_type: private_ip
   zen.ping.multicast.enabled: false
+
 cloud:
   aws:
-    region: "{{ elasticsearch_cloud_aws_region }}"
+    region: {% if environment_tier == 'production' %}us-east-1{% else %}us-west-2{% endif %}
+
+
+{% if elasticsearch_master_enabled %}
+node.master: true
+# discovery.zen.ping.unicast.hosts: ["client.logger-production.teluswebteam.com", "logs.logger-production.teluswebteam.com"]
+{% else %}
+node.master: false
+{% endif %}
+
+{% if elasticsearch_data_enabled %}
+node.data: true
+# indices.fielddata.cache.size: 40%
+index.cache.query.enable: true
+
+indices.cache.filter.size: 20%
+indices.cache.query.size: 5%
+bootstrap.mlockall: true
+{% else %}
+node.data: false
+{% endif %}
+
+{% if elasticsearch_http_enabled %}
+index.cache.query.enable: true
+
+indices.cache.filter.size: 20%
+indices.cache.query.size: 5%
+bootstrap.mlockall: true
+
+http.enabled: true
+{% else %}
+http.enabled: false
+{% endif %}

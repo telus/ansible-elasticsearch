@@ -1,0 +1,25 @@
+---
+- name: Install Shield Trial License
+  command: /usr/share/elasticsearch/bin/plugin --install elasticsearch/license/latest
+  tags:
+    - elasticsearch
+    - shield
+  when: elasticsearch_shield_enabled
+
+- name: Install elasticsearch/shield/latest
+  command: /usr/share/elasticsearch/bin/plugin --install elasticsearch/shield/latest
+  tags:
+    - elasticsearch
+    - shield
+  when: elasticsearch_shield_enabled
+
+- name: Upload Shield Symmetric key
+  template:
+    src: system_key
+    dest: "{{ elasticsearch_config_path }}/shield/system_key"
+    owner: "{{ elasticsearch_user }}"
+    mode: "u=rw,g=r,o=r"
+  tags:
+    - elasticsearch
+    - shield
+  when: elasticsearch_shield_enabled

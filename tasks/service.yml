@@ -1,0 +1,7 @@
+---
+- name: Reload Service | elasticsearch
+  service:
+    state: restarted
+    name: elasticsearch
+  tags:
+    - disruptive

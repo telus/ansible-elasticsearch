@@ -1,5 +1,8 @@
 ---
 - include: install.yml
+- include: plugins.yml
+- include: security.yml
 - include: monitoring.yml
 - include: logging.yml
 - include: configure.yml
+- include: service.yml
